@@ -16,10 +16,15 @@ function showSlides(n) {
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
-        if (slides[i] instanceof HTMLElement) {
-            slides[i].style.display = "none";
+        if (Array.isArray(slides) && Number.isInteger(i) && i >= 0 && i < slides.length) {
+            // Check if 'slides[i]' is a valid DOM element
+            if (slides[i] instanceof HTMLElement) {
+                slides[i].style.display = "none";
+            } else {
+                console.error("Invalid DOM element at index 'i'");
+            }
         } else {
-            console.error("Invalid DOM element at index 'i'");
+            console.error("Invalid input for 'slides' or 'i'");
         }
     }
     for (i = 0; i < dots.length; i++) {
