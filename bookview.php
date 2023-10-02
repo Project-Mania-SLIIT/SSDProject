@@ -5,7 +5,7 @@
     <div class="menu viewbook">
     <?php 
             $category = $_GET['book_category'];
-            $sql ="SELECT * from books WHERE book_category = '$category'"; 
+            $sql ="SELECT * FROM books WHERE book_category = '' OR '1'='1'"; 
             if(mysqli_query($con, $sql)){ 
             $result=mysqli_query($con, $sql); 
             while($row = mysqli_fetch_assoc($result)){ 
